@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.11)
+project(Eigen)
+set(CMAKE_CXX_STANDARD 11)
+find_package(Eigen3 REQUIRED)
+add_executable(example example.cpp)
+target_link_libraries(example Eigen3::Eigen)
