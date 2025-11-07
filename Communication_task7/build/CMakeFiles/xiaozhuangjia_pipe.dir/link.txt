@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/xiaozhuangjia_pipe.dir/xiaozhuangjia_named_pipe.cpp.o -o xiaozhuangjia_pipe 
