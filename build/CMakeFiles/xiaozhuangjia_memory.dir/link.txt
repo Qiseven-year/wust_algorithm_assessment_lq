@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/xiaozhuangjia_memory.dir/xiaozhuangjia_shared_memory.cpp.o -o xiaozhuangjia_memory 
