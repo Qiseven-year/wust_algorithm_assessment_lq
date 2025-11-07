@@ -7,10 +7,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include_directories(${PROJECT_SOURCE_DIR})
 
-#Ìí¼ÓÏß³ÌÖ§³Ö
+#æ·»åŠ çº¿ç¨‹æ”¯æŒ
 find_package(Threads REQUIRED)
 
 add_executable(new_task6 ${PROJECT_SOURCE_DIR}/new_task6.cpp)
 
-#Á´½ÓÏß³Ì¿â
+#é“¾æ¥çº¿ç¨‹åº“
 target_link_libraries(task6 Threads::Threads)
