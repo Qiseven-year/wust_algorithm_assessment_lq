@@ -1,3 +1,0 @@
-D:/Users/15131/Desktop/TASK_6/out/build/x64-Debug/CMakeFiles/task6.dir
-D:/Users/15131/Desktop/TASK_6/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-D:/Users/15131/Desktop/TASK_6/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
