@@ -1,6 +1,0 @@
-cmake_minimum_required(VERSION 3.11)
-project(task_7)
-add_executable(xiaofu_memory xiaofu_shared_memory.cpp)
-add_executable(xiaozhuangjia_memory xiaozhuangjia_shared_memory.cpp)
-add_executable(xiaofu_pipe xiaofu_named_pipe.cpp)
-add_executable(xiaozhuangjia_pipe xiaozhuangjia_named_pipe.cpp)
