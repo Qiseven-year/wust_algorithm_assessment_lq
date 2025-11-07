@@ -22,7 +22,7 @@ public:
         infer_ =
             FakeInfer::createUnique(std::bind(&Vision::inferCallback, this, std::placeholders::_1));
 
-        // Æô¶¯Ë³Ğò´¦ÀíÏß³Ì
+        //å¯åŠ¨é¡ºåºå¤„ç†çº¿ç¨‹
         process_thread_ = std::thread(&Vision::processResults, this);
     }
 
@@ -34,7 +34,7 @@ public:
         std::cout << "Vision destroyed" << std::endl;
         run_flag_ = false;
 
-        // Í¨Öª´¦ÀíÏß³ÌÍË³ö
+        //é€šçŸ¥å¤„ç†çº¿ç¨‹é€€å‡º
         {
             std::lock_guard<std::mutex> lock(queue_mutex_);
             cv_.notify_all();
@@ -65,7 +65,7 @@ public:
         printStatus();
 
         if (pool_ && run_flag_) {
-            // ²¢ĞĞÍÆÀí
+            //å¹¶è¡Œæ¨ç†
             pool_->enqueue([this, frame = std::move(image)]() mutable {
                 if (!run_flag_)
                     return;
@@ -77,9 +77,9 @@ public:
 
     void inferCallback(const InferResult& result) {
         std::lock_guard<std::mutex> lock(queue_mutex_);
-        // ½«ÍÆÀí½á¹û·ÅÈëÓÅÏÈ¶ÓÁĞ
+        //å°†æ¨ç†ç»“æœæ”¾å…¥ä¼˜å…ˆé˜Ÿåˆ—
         result_queue_.push(result);
-        cv_.notify_one(); // Í¨Öª´¦ÀíÏß³ÌÓĞĞÂÊı¾İ
+        cv_.notify_one(); //é€šçŸ¥å¤„ç†çº¿ç¨‹æœ‰æ–°æ•°æ®
     }
 
     void processResults() {
@@ -89,7 +89,7 @@ public:
         while (run_flag_) {
             std::unique_lock<std::mutex> lock(queue_mutex_);
 
-            // µÈ´ı¶ÓÁĞ²»Îª¿Õ
+            //ç­‰å¾…é˜Ÿåˆ—ä¸ä¸ºç©º
             cv_.wait_for(lock, std::chrono::milliseconds(100), [this]() {
                 return !result_queue_.empty() || !run_flag_;
                 });
@@ -97,14 +97,14 @@ public:
             if (!run_flag_) break;
             if (result_queue_.empty()) continue;
 
-            // »ñÈ¡µ±Ç°¶ÓÁĞÖĞÊ±¼ä´Á×îĞ¡µÄ½á¹û
+            //è·å–å½“å‰é˜Ÿåˆ—ä¸­æ—¶é—´æˆ³æœ€å°çš„ç»“æœ
             const InferResult& next_result = result_queue_.top();
 
-            // Èç¹ûÊÇµÚÒ»¸ö½á¹û£¬»òÕßÊ±¼ä´Á·ûºÏË³Ğò£¬¾Í´¦ÀíËü
+            //å¦‚æœæ˜¯ç¬¬ä¸€ä¸ªç»“æœï¼Œæˆ–è€…æ—¶é—´æˆ³ç¬¦åˆé¡ºåºï¼Œå°±å¤„ç†å®ƒ
             if (is_first_result || next_result.timestamp > last_processed_timestamp) {
                 InferResult result = next_result;
                 result_queue_.pop();
-                lock.unlock(); // ½âËøºóÔÙ´¦Àí£¬±ÜÃâ³¤Ê±¼ä³ÖÓĞËø
+                lock.unlock(); //è§£é”åå†å¤„ç†ï¼Œé¿å…é•¿æ—¶é—´æŒæœ‰é”
 
                 track(result);
 
@@ -114,7 +114,7 @@ public:
                 last_processed_timestamp = result.timestamp;
             }
             else {
-                // Èç¹ûÊ±¼ä´Á²»·ûºÏË³Ğò£¬µÈ´ı¸ü¶à½á¹û
+                //å¦‚æœæ—¶é—´æˆ³ä¸ç¬¦åˆé¡ºåºï¼Œç­‰å¾…æ›´å¤šç»“æœ
                 lock.unlock();
                 std::this_thread::yield();
             }
@@ -154,10 +154,10 @@ private:
     std::unique_ptr<FakeCamera> camera_;
     std::unique_ptr<ThreadPool> pool_;
 
-    // ÓÃÓÚË³Ğò´¦ÀíµÄÓÅÏÈ¶ÓÁĞ
+    //ç”¨äºé¡ºåºå¤„ç†çš„ä¼˜å…ˆé˜Ÿåˆ—
     struct CompareTimestamp {
         bool operator()(const InferResult& a, const InferResult& b) {
-            return a.timestamp > b.timestamp; // ×îĞ¡¶Ñ£¬Ê±¼ä´ÁĞ¡µÄÔÚ¶¥²¿
+            return a.timestamp > b.timestamp; //æœ€å°å †ï¼Œæ—¶é—´æˆ³å°çš„åœ¨é¡¶éƒ¨
         }
     };
     std::priority_queue<InferResult, std::vector<InferResult>, CompareTimestamp> result_queue_;
@@ -196,4 +196,5 @@ int main() {
         return -1;
     }
     return 0;
+
 }
