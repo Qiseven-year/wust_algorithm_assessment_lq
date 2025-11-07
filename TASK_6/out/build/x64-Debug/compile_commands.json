@@ -1,8 +1,0 @@
-[
-{
-  "directory": "D:/Users/15131/Desktop/TASK_6/out/build/x64-Debug",
-  "command": "D:\\vs2022\\产品\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -ID:\\Users\\15131\\Desktop\\TASK_6 /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\task6.dir\\task6.cpp.obj /FdCMakeFiles\\task6.dir\\ /FS -c D:\\Users\\15131\\Desktop\\TASK_6\\task6.cpp",
-  "file": "D:\\Users\\15131\\Desktop\\TASK_6\\task6.cpp",
-  "output": "CMakeFiles\\task6.dir\\task6.cpp.obj"
-}
-]
