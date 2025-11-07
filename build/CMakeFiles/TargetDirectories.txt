@@ -1,6 +1,0 @@
-/home/seven/桌面/Communication_task7/build/CMakeFiles/xiaofu_memory.dir
-/home/seven/桌面/Communication_task7/build/CMakeFiles/xiaozhuangjia_memory.dir
-/home/seven/桌面/Communication_task7/build/CMakeFiles/xiaofu_pipe.dir
-/home/seven/桌面/Communication_task7/build/CMakeFiles/xiaozhuangjia_pipe.dir
-/home/seven/桌面/Communication_task7/build/CMakeFiles/edit_cache.dir
-/home/seven/桌面/Communication_task7/build/CMakeFiles/rebuild_cache.dir
