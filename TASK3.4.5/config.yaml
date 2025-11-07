@@ -1,0 +1,18 @@
+app:
+  name: helloApp
+  Version: "2.1.0"
+
+service:
+  host: "127.0.0.1"
+  port: 8080
+  timeout: 90
+  debug: true
+
+alerts:
+  threshold: 0.75
+  interval: 30
+  enabled: true
+
+database:
+  connection: "mysql://localhost:3306"
+  pool_size: 10

@@ -1,0 +1,4 @@
+/home/seven/桌面/TASK3.4.5/build/CMakeFiles/task_4.dir
+/home/seven/桌面/TASK3.4.5/build/CMakeFiles/task_5.dir
+/home/seven/桌面/TASK3.4.5/build/CMakeFiles/edit_cache.dir
+/home/seven/桌面/TASK3.4.5/build/CMakeFiles/rebuild_cache.dir
